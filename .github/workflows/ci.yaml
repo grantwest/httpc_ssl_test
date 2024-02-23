@@ -31,6 +31,16 @@ jobs:
             otp: "24.0"
           - elixir: "1.16.0"
             otp: "24.0"
+          - elixir: "1.16.0"
+            otp: "24.3.4.16"
+          - elixir: "1.16.0"
+            otp: "25.0"
+          - elixir: "1.16.0"
+            otp: "25.3.2.9"
+          - elixir: "1.16.0"
+            otp: "26.0"
+          - elixir: "1.16.0"
+            otp: "26.2.2"
     steps:
       - uses: actions/checkout@v2
 
