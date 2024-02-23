@@ -8,44 +8,36 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       MIX_ENV: test
     strategy:
       fail-fast: false
       matrix:
         include:
-          - pair:
-            elixir: "1.9.0"
+          - elixir: "1.9.0"
             otp: "20.0"
-          - pair:
-            elixir: "1.10.0"
+          - elixir: "1.10.0"
             otp: "21.0"
-          - pair:
-            elixir: "1.11.0"
+          - elixir: "1.11.0"
             otp: "21.0"
-          - pair:
-            elixir: "1.12.0"
+          - elixir: "1.12.0"
             otp: "22.0"
-          - pair:
-            elixir: "1.13.0"
+          - elixir: "1.13.0"
             otp: "22.0"
-          - pair:
-            elixir: "1.14.0"
+          - elixir: "1.14.0"
             otp: "23.0"
-          - pair:
-            elixir: "1.15.0"
+          - elixir: "1.15.0"
             otp: "24.0"
-          - pair:
-            elixir: "1.16.0"
+          - elixir: "1.16.0"
             otp: "24.0"
     steps:
       - uses: actions/checkout@v2
 
       - uses: erlef/setup-beam@v1
         with:
-          otp-version: ${{matrix.pair.otp}}
-          elixir-version: ${{matrix.pair.elixir}}
+          otp-version: ${{matrix.otp}}
+          elixir-version: ${{matrix.elixir}}
 
       - run: mix deps.get --only test
       - run: mix deps.compile
