@@ -15,6 +15,8 @@ defmodule HttpcTestTest do
       "https://dh480.badssl.com/"
     ]
     |> Enum.each(fn url ->
+      IO.puts(url)
+
       assert_raise Tesla.Error, fn ->
         Tesla.get!(url)
       end
